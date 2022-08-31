@@ -1,0 +1,516 @@
+@import url("./main/main.css");
+@import url("./modal/modal.css");
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+/*reset css*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} 
+
+/* common */
+
+.pull-right {
+    float: right;
+}
+
+.pull-right::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.button {
+    padding: 12px 16px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+}
+
+.button:hover {
+    color: #000;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+}
+
+.mt-8 {
+    margin-top: 8px !important;
+}
+
+.mt-16 {
+    margin-top: 16px !important;
+}
+
+.clear-float {
+    clear: both;
+}
+
+.white-text {
+    color: #fff !important;
+}
+
+.row {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.row::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.col {
+    padding-left: 8px;
+    padding-right: 8px;
+    float: left;
+}
+
+.col-1 {
+    width: 100%;
+}
+
+.col-2 {
+    width: 50%;
+}
+
+.col-3 {
+    width: calc(100% / 3);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* main css */
+
+.modal.open {
+    display: flex;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    display: none;
+}
+
+.modal .modal-container {
+    margin: 50px;
+    width: 900px;
+    min-height: 200px;
+    background-color: #fff;
+    position: relative;
+    animation: modalFadeIn ease .5s;
+}
+
+.modal .modal-container .modal-header {
+    font-size: 30px;
+    color: #fff;
+    background-color: #009688;
+    text-align: center;
+    padding: 50px;
+}
+
+.modal .modal-container .modal-close:hover {
+    background-color: #ccc;
+    color: #000;
+}
+
+.modal .modal-container .modal-close {
+    position: absolute;
+    right: 0;
+    padding: 16px;
+    color: #fff;
+}
+
+.modal .modal-body {
+    margin: 20px;
+}
+
+.modal .modal-body .modal-label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.modal .modal-body .modal-input {
+    display: block;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-radius: 1px;
+    border-color: #ccc;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.modal .modal-body .buy-button:hover {
+    color: #000;
+    background-color: #ccc;
+}
+
+.modal .modal-body .buy-button {
+    width: 100%;
+    font-size: 20px;
+    border-style: none;
+    background-color: #009688;
+    color: #fff;
+    padding: 16px;
+    text-transform: uppercase;
+}
+
+.modal .modal-footer {
+    padding: 16px;
+    text-align: right;
+}
+
+.modal .modal-footer a {
+    color: blue;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    } to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+#main{
+
+}
+
+@import url(themify-icon.css);
+
+#header{
+    height: 46px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#header .mobile-menu:hover {
+    background-color: #ccc!important;
+}
+
+#header .mobile-menu:hover .mobile-menu-icon {
+    color: #000;
+}
+
+#header .search:hover {
+    background-color: #f44336!important;
+    cursor: pointer;
+}
+
+#header .mobile-menu,
+#header .search {
+    float: right;
+}
+
+#header .mobile-menu .mobile-menu-icon,
+#header .search .search-icon {
+    color: #fff;
+    font-size: 20px;
+    line-height: 46px;
+    padding: 0px 22px;
+}
+
+#navigation {
+    display: inline-block;
+}
+
+#navigation li {
+    display: inline-block;
+    position: relative;
+}
+
+#navigation .navigation-arrow-down {
+    font-size: 10px;
+}
+
+#navigation > li > a {
+    color: white;
+    text-transform: uppercase;
+}
+
+#navigation li a {
+    text-decoration: none;
+    line-height: 46px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: block;
+}
+
+#navigation > li:hover > a {
+    background-color: #ccc;
+    display: inline-block;
+}
+
+#navigation li:hover .subNavigation {
+    display: block;
+}
+
+#navigation li:hover a {
+    color: black;
+    /* nếu đặt   display: inline-block;  ở đây thì bug. có thể do cách thức hoạt động của   display: inline-block   là không xuống dòng và không lấy hết chiều ngang + dọc của thẻ cha như   display: block   nên hitbox của phần subNavigation không dài ra bằng thẻ li cha trực tiếp của nó */
+}
+
+#navigation .subNavigation {
+    display: none;
+    top: 100%;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+#navigation .subNavigation li:hover {
+    background-color: #ccc;
+}
+
+#navigation .subNavigation li {
+    min-width: 150px;
+    text-decoration: none;
+    display: block;
+}
+
+#navigation .subNavigation a {
+    /* padding-right: calc(100% - 16px); */
+    color: black;
+    padding-left: 12px;
+    line-height: 36px;
+}
+
+#slider {
+    margin-top: 46px;
+    padding-top: 50%;
+    background: url("/assets/img/slider/slider_1.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    /* relative là thuộc tính vị trí định nghĩa thẻ đó nằm ở vị trí mà nó được xác định từ ban đầu */
+}
+
+#slider .slider-content {
+    position: absolute;
+    /* absolute là thuộc tính vị trí định nghĩa thẻ đó năm kế tiếp thẻ cha của nó */
+    color: #fff;
+    bottom: 48px;
+    width: 100%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    bottom: 50px;
+    float: none;
+}
+
+#slider .slider-header {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 56px;
+}
+
+#slider .slider-detail {
+    font-size: 15px;
+}
+
+#content {
+
+}
+
+#content .content-section {
+    width: 800px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 64px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#content .content-section .section-heading,
+#content .content-section .section-sub-heading {
+    text-align: center;
+}
+
+#content .content-section .section-heading {
+    margin: 10px 0px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+#content .content-section .section-sub-heading {
+    margin: 15px 10px;
+    font-style: italic;
+    color: rgb(107, 107, 107);
+}
+
+#content .ticket li {
+    color: rgb(177, 177, 177);
+    padding: 11px 16px;
+    list-style-type: none;
+    background-color: #fff;
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(177, 177, 177);
+    font-size: 15px;
+}
+
+#content .ticket .sold-out {
+    background-color: #f44336;
+    padding: 4px 8px;
+    margin-left: 16px;
+    color: #fff;
+    font-size: 15px;
+}
+
+#content .ticket .quantity {
+    float: right;
+    background-color: #000;
+    border-radius: 50%;
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    margin-right: 16px;
+    margin-top: -3px;
+}
+
+#content .content-section .about {
+    margin: 15px 0px;
+    text-align: justify;
+}
+
+#content .content-section .profile-list {
+    padding: 45px 0px;
+}
+
+#content .profile-name {
+    font-size: 15px;
+    margin: 15px 0px;
+}
+
+#content .profile-picture {
+    width: 156px;
+    border-radius: 4px
+}
+
+#content .tour-section {
+    background-color: #000;
+}
+
+.location-list {
+    margin-top: 32px;
+}
+
+.location {
+    width: calc(100% / 3);
+}
+
+.location-image {
+    width: 100%;
+    display: block;
+}
+
+.location-image:hover {
+    opacity: 0.6;
+}
+
+.location-content {
+    background-color: #fff;
+    padding: 12px;
+    padding-bottom: 24px;
+}
+
+.location-name {
+    padding-bottom: 12px;
+    font-size: 16px;
+}
+
+.location-date {
+    padding-bottom: 12px;
+    color: #999;
+    font-size: 14px;
+}
+
+.location-detail {
+    padding-bottom: 24px;
+    font-size: 15px;
+}
+
+.contact-content {
+    margin-top: 48px;
+}
+
+.contact-info {
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.contact-info i[class*='ti-'] {
+    width: 30px;
+    display: inline-block;
+}
+
+.contact-form {
+    font-size: 15px;
+}
+
+.contact-form .form-control {
+    padding: 10px;
+    border-radius: 1px solid #ccc;
+    width: 100%;
+}
+
+.map-section img {
+    max-width: 100%;
+}
+
+#footer {
+    padding: 64px;  
+    text-align: center;
+}
+
+#footer .social-list {
+    font-size: 24px;
+}
+
+#footer .social-list a {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+}
+
+#footer .social-list a:hover {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+#footer .copyright a,
+#footer .copyright {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+#footer .copyright {
+    margin-top: 16px;
+}
